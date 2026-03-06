@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+
 
 :root {
   font-family: 'Outfit', sans-serif;
@@ -22,6 +23,7 @@ body {
 
 .text-gradient {
   background: linear-gradient(to right, #FF4D00, #FFB800);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
