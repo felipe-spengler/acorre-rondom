@@ -59,7 +59,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-white/5 pt-10 flex flex-col md:row justify-between items-center gap-4 text-sm text-gray-500">
-                    <p>© 2025 ACORRE RONDON. Todos os direitos reservados.</p>
+                    <p>© 2026 ACORRE RONDON. Todos os direitos reservados.</p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-white">Privacidade</a>
                         <a href="#" className="hover:text-white">Termos</a>

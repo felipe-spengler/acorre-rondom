@@ -29,10 +29,19 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     <Link to="/" className="flex items-center space-x-3 group">
-                        <div className="w-10 h-10 rounded-lg overflow-hidden border border-primary group-hover:scale-110 transition-transform">
+                        <motion.div
+                            whileHover={{ rotate: -5, scale: 1.1 }}
+                            className="w-10 h-10 rounded-lg overflow-hidden border border-primary transition-transform shadow-[0_0_15px_rgba(255,77,0,0.3)] group-hover:shadow-[0_0_25px_rgba(255,77,0,0.6)]"
+                        >
                             <img src={logoImg} alt="ACORRE" className="w-full h-full object-cover" />
-                        </div>
-                        <span className="text-2xl font-black tracking-tighter italic">ACORRE</span>
+                        </motion.div>
+                        <motion.span
+                            initial={{ x: 0 }}
+                            whileHover={{ x: 5, skewX: -10 }}
+                            className="text-2xl font-black tracking-tighter italic bg-gradient-to-r from-white via-white to-primary bg-[length:200%_100%] bg-clip-text hover:text-transparent transition-all duration-500 hover:bg-[100%_0%]"
+                        >
+                            ACORRE
+                        </motion.span>
                     </Link>
 
                     {/* Desktop Links */}

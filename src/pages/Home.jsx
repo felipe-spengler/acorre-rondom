@@ -27,14 +27,14 @@ const Home = () => {
                         className="max-w-3xl"
                     >
                         <span className="inline-block bg-primary px-3 py-1 text-xs font-black uppercase tracking-widest text-black mb-6">
-                            Temporada 2025
+                            Temporada 2026
                         </span>
                         <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter leading-none mb-6">
                             DESAFIE O SEU <br />
                             <span className="text-primary italic">PRÓPRIO RITMO</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-xl">
-                            Mais do que uma corrida, uma experiência urbana. Una-se à maior comunidade de corredores de elite.
+                            Mais do que uma corrida, uma experiência urbana. Una-se experiência única de superação, resistência e muita adrenalina.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link to="/inscricoes" className="flex items-center justify-center gap-2 bg-primary text-black px-10 py-5 rounded-full font-black text-lg hover:bg-primary-light transition-all transform hover:scale-105">
