@@ -22,7 +22,7 @@ const Footer = () => {
                             <a href="https://www.instagram.com/acorrerondon/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all">
                                 <Instagram size={20} />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all">
+                            <a href="https://www.facebook.com/acorre.rondon.1/?locale=pt_BR" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all">
                                 <Facebook size={20} />
                             </a>
                         </div>
