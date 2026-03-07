@@ -37,12 +37,13 @@ const Inscricoes = () => {
                         </div>
 
                         {/* 
-              O iframe abaixo aponta para um site de exemplo (Ticket Agora, comum em corridas).
-              O usuário pode trocar pelo link real da plataforma que usam.
-            */}
+                          Hacks de CSS para esconder o menu do iframe (crop visual).
+                          Subimos o iframe -74px para esconder o header da plataforma externa.
+                        */}
                         <iframe
-                            src="https://esportivo.techinteligente.site/races/63"
-                            className="w-full h-full border-0"
+                            src="https://esportivo.techinteligente.site/races/63/register"
+                            className="w-full border-0"
+                            style={{ height: 'calc(100% + 74px)', marginTop: '-74px' }}
                             title="Portal de Inscrições"
                             allowFullScreen
                         ></iframe>
@@ -50,7 +51,7 @@ const Inscricoes = () => {
 
                     <div className="mt-8 flex justify-center">
                         <a
-                            href="https://esportivo.techinteligente.site/races/63"
+                            href="https://esportivo.techinteligente.site/races/63/register"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-medium"
