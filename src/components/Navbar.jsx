@@ -21,6 +21,7 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Inscrições', path: '/inscricoes' },
+        { name: 'Resultados', path: 'https://esportivo.techinteligente.site/races/63/results', isExternal: true },
         { name: 'Contato', path: '/contato' },
     ];
 
@@ -47,13 +48,25 @@ const Navbar = () => {
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center space-x-8">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === link.path ? 'text-primary' : 'text-gray-300'}`}
-                            >
-                                {link.name}
-                            </Link>
+                            link.isExternal ? (
+                                <a
+                                    key={link.name}
+                                    href={link.path}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm font-medium transition-colors hover:text-primary text-gray-300"
+                                >
+                                    {link.name}
+                                </a>
+                            ) : (
+                                <Link
+                                    key={link.name}
+                                    to={link.path}
+                                    className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === link.path ? 'text-primary' : 'text-gray-300'}`}
+                                >
+                                    {link.name}
+                                </Link>
+                            )
                         ))}
                         <Link to="/inscricoes" className="bg-primary text-black px-6 py-2 rounded-full font-bold text-sm hover:bg-primary-light transition-all transform hover:scale-105">
                             INSCREVA-SE
@@ -81,14 +94,27 @@ const Navbar = () => {
                 >
                     <div className="px-4 pt-8 pb-3 space-y-4">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                onClick={() => setIsOpen(false)}
-                                className={`block text-2xl font-bold py-4 border-b border-white/5 ${location.pathname === link.path ? 'text-primary' : 'text-white'}`}
-                            >
-                                {link.name}
-                            </Link>
+                            link.isExternal ? (
+                                <a
+                                    key={link.name}
+                                    href={link.path}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => setIsOpen(false)}
+                                    className="block text-2xl font-bold py-4 border-b border-white/5 text-white"
+                                >
+                                    {link.name}
+                                </a>
+                            ) : (
+                                <Link
+                                    key={link.name}
+                                    to={link.path}
+                                    onClick={() => setIsOpen(false)}
+                                    className={`block text-2xl font-bold py-4 border-b border-white/5 ${location.pathname === link.path ? 'text-primary' : 'text-white'}`}
+                                >
+                                    {link.name}
+                                </Link>
+                            )
                         ))}
                         <div className="pt-4">
                             <Link

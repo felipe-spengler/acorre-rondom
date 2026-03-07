@@ -35,7 +35,7 @@ const Footer = () => {
                             <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Início</Link></li>
                             <li><Link to="/inscricoes" className="text-gray-400 hover:text-white transition-colors">Inscrições</Link></li>
                             <li><Link to="/contato" className="text-gray-400 hover:text-white transition-colors">Contato</Link></li>
-                            <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Resultados</a></li>
+                            <li><a href="https://esportivo.techinteligente.site/races/63/results" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Resultados</a></li>
                         </ul>
                     </div>
 

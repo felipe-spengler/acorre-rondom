@@ -41,7 +41,7 @@ const Inscricoes = () => {
               O usuário pode trocar pelo link real da plataforma que usam.
             */}
                         <iframe
-                            src="https://www.ticketsports.com.br/"
+                            src="https://esportivo.techinteligente.site/races/63"
                             className="w-full h-full border-0"
                             title="Portal de Inscrições"
                             allowFullScreen
@@ -50,7 +50,7 @@ const Inscricoes = () => {
 
                     <div className="mt-8 flex justify-center">
                         <a
-                            href="https://www.ticketsports.com.br/"
+                            href="https://esportivo.techinteligente.site/races/63"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-medium"

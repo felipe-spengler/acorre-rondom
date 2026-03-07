@@ -34,7 +34,7 @@ const Home = () => {
                             <span className="text-primary italic">PRÓPRIO RITMO</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-xl">
-                            Mais do que uma corrida, uma experiência urbana. Una-se experiência única de superação, resistência e muita adrenalina.
+                            Mais do que uma corrida, uma experiência urbana. Una-se a experiência única de superação, resistência e muita adrenalina.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link to="/inscricoes" className="flex items-center justify-center gap-2 bg-primary text-black px-10 py-5 rounded-full font-black text-lg hover:bg-primary-light transition-all transform hover:scale-105">
@@ -121,7 +121,7 @@ const Home = () => {
                                 <span className="text-primary">VELOCIDADE</span>
                             </h2>
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                                Nossas provas não são apenas corridas. São eventos meticulosamente planejados para que você alcance sua melhor marca pessoal em ambientes vibrantes e seguros.
+                                Nossas provas não são apenas corridas. São eventos planejados para que você alcance sua melhor marca pessoal em ambientes vibrantes e seguros.
                             </p>
                             <ul className="space-y-4 mb-10">
                                 <li className="flex items-center gap-4">
@@ -132,10 +132,7 @@ const Home = () => {
                                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                                     <span className="text-gray-200">Hidratação isotônica premium</span>
                                 </li>
-                                <li className="flex items-center gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                                    <span className="text-gray-200">Aplicativo de monitoramento em tempo real</span>
-                                </li>
+
                             </ul>
                             <Link to="/contato" className="text-primary font-black flex items-center gap-2 hover:gap-4 transition-all">
                                 FALE COM UM CONSULTOR <ArrowRight size={20} />
