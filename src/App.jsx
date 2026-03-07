@@ -5,9 +5,12 @@ import Home from './pages/Home';
 import Inscricoes from './pages/Inscricoes';
 import Contato from './pages/Contato';
 
+import ScrollToTop from './components/ScrollToTop';
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-dark text-white font-outfit">
         <Navbar />
         <main>

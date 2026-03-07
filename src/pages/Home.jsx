@@ -117,26 +117,30 @@ const Home = () => {
                         </div>
                         <div className="lg:w-1/2">
                             <h2 className="text-5xl font-black italic tracking-tighter mb-8 leading-tight">
-                                PROJETADA PARA <br />
-                                <span className="text-primary">VELOCIDADE</span>
+                                VIVA A JORNADA DO <br />
+                                <span className="text-primary">CORREDOR</span>
                             </h2>
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                                Nossas provas não são apenas corridas. São eventos planejados para que você alcance sua melhor marca pessoal em ambientes vibrantes e seguros.
+                                Não é sobre o relógio, é sobre a sensação de cruzar a linha. Nossa estrutura é pensada para que você se preocupe apenas com seu próximo passo, cercado por uma comunidade que vibra na mesma frequência.
                             </p>
                             <ul className="space-y-4 mb-10">
                                 <li className="flex items-center gap-4">
                                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                                    <span className="text-gray-200">Kits exclusivos em cada etapa</span>
+                                    <span className="text-gray-200">Suporte e incentivo em todo o percurso</span>
                                 </li>
                                 <li className="flex items-center gap-4">
                                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                                    <span className="text-gray-200">Hidratação isotônica premium</span>
+                                    <span className="text-gray-200">Momentos compartilhados com quem ama o esporte</span>
                                 </li>
-
                             </ul>
-                            <Link to="/contato" className="text-primary font-black flex items-center gap-2 hover:gap-4 transition-all">
-                                FALE COM UM CONSULTOR <ArrowRight size={20} />
-                            </Link>
+                            <a
+                                href="https://www.instagram.com/acorrerondon/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary font-black flex items-center gap-2 hover:gap-4 transition-all"
+                            >
+                                VER FOTOS DA COMUNIDADE <ArrowRight size={20} />
+                            </a>
                         </div>
                     </div>
                 </div>

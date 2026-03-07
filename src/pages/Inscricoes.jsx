@@ -38,12 +38,12 @@ const Inscricoes = () => {
 
                         {/* 
                           Hacks de CSS para esconder o menu do iframe (crop visual).
-                          Subimos o iframe -74px para esconder o header da plataforma externa.
+                          Subimos o iframe -60px para esconder o header da plataforma externa.
                         */}
                         <iframe
                             src="https://esportivo.techinteligente.site/races/63/register"
                             className="w-full border-0"
-                            style={{ height: 'calc(100% + 74px)', marginTop: '-74px' }}
+                            style={{ height: 'calc(100% + 60px)', marginTop: '-60px' }}
                             title="Portal de Inscrições"
                             allowFullScreen
                         ></iframe>
