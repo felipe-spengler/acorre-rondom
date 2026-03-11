@@ -41,7 +41,7 @@ const Inscricoes = () => {
                           Subimos o iframe -60px para esconder o header da plataforma externa.
                         */}
                         <iframe
-                            src="https://esportivo.techinteligente.site/races/63/register"
+                            src="https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida"
                             className="w-full border-0"
                             style={{ height: 'calc(100% + 60px)', marginTop: '-60px' }}
                             title="Portal de Inscrições"
@@ -51,7 +51,7 @@ const Inscricoes = () => {
 
                     <div className="mt-8 flex justify-center">
                         <a
-                            href="https://esportivo.techinteligente.site/races/63/register"
+                            href="https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-medium"

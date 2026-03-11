@@ -33,9 +33,12 @@ const Footer = () => {
                         <h4 className="text-lg font-bold mb-6 uppercase tracking-widest text-primary">Navegação</h4>
                         <ul className="space-y-4">
                             <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Início</Link></li>
+                            <li><Link to="/noticias" className="text-gray-400 hover:text-white transition-colors">Notícias</Link></li>
+                            <li><Link to="/diretoria" className="text-gray-400 hover:text-white transition-colors">Diretoria</Link></li>
                             <li><Link to="/inscricoes" className="text-gray-400 hover:text-white transition-colors">Inscrições</Link></li>
-                            <li><Link to="/contato" className="text-gray-400 hover:text-white transition-colors">Contato</Link></li>
+                            <li><Link to="/projeto-saude" className="text-gray-400 hover:text-white transition-colors">Projeto Saúde</Link></li>
                             <li><a href="https://esportivo.techinteligente.site/races/63/results" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Resultados</a></li>
+                            <li><Link to="/contato" className="text-gray-400 hover:text-white transition-colors">Contato</Link></li>
                         </ul>
                     </div>
 
