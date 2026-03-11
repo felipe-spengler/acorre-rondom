@@ -48,6 +48,7 @@ const Home = () => {
                 </div>
 
                 {/* Floating Stats */}
+                {/* 
                 <div className="absolute bottom-10 left-10 hidden xl:flex gap-12 z-10 px-10 py-6 glass rounded-2xl">
                     <div className="flex flex-col">
                         <span className="text-3xl font-black text-primary italic">15K+</span>
@@ -64,6 +65,7 @@ const Home = () => {
                         <span className="text-xs uppercase tracking-widest text-gray-400">Em Prêmios</span>
                     </div>
                 </div>
+                */}
             </section>
 
             {/* Features/Highlights */}

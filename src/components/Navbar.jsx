@@ -24,7 +24,7 @@ const Navbar = () => {
         { name: 'Diretoria', path: '/diretoria' },
         { name: 'Inscrições', path: '/inscricoes' },
         { name: 'Projeto Saúde', path: '/projeto-saude' },
-        { name: 'Resultados', path: 'https://esportivo.techinteligente.site/races/63/results', isExternal: true },
+        { name: 'Resultados', path: '/resultados' },
         { name: 'Contato', path: '/contato' },
     ];
 

@@ -37,7 +37,7 @@ const Footer = () => {
                             <li><Link to="/diretoria" className="text-gray-400 hover:text-white transition-colors">Diretoria</Link></li>
                             <li><Link to="/inscricoes" className="text-gray-400 hover:text-white transition-colors">Inscrições</Link></li>
                             <li><Link to="/projeto-saude" className="text-gray-400 hover:text-white transition-colors">Projeto Saúde</Link></li>
-                            <li><a href="https://esportivo.techinteligente.site/races/63/results" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Resultados</a></li>
+                            <li><Link to="/resultados" className="text-gray-400 hover:text-white transition-colors">Resultados</Link></li>
                             <li><Link to="/contato" className="text-gray-400 hover:text-white transition-colors">Contato</Link></li>
                         </ul>
                     </div>
@@ -52,9 +52,10 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3 text-gray-400">
                                 <Phone size={18} className="text-primary" />
-                                <span>(45) 99999-9999</span>
+                                <span>(45) 99912-7800</span>
                             </li>
                             <li className="text-gray-400 italic mt-4">
+                                Rua Sete de Setembro, nº 945, Centro <br />
                                 Marechal Cândido Rondon - PR
                             </li>
                         </ul>

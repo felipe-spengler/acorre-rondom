@@ -7,6 +7,7 @@ import Contato from './pages/Contato';
 import Noticias from './pages/Noticias';
 import Diretoria from './pages/Diretoria';
 import ProjetoMovimentoSaude from './pages/ProjetoMovimentoSaude';
+import Resultados from './pages/Resultados';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/noticias" element={<Noticias />} />
             <Route path="/diretoria" element={<Diretoria />} />
             <Route path="/projeto-saude" element={<ProjetoMovimentoSaude />} />
+            <Route path="/resultados" element={<Resultados />} />
             <Route path="/contato" element={<Contato />} />
           </Routes>
         </main>
