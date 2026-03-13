@@ -22,7 +22,7 @@ const Contato = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* WhatsApp Card */}
                         <motion.a
-                            href="https://wa.me/5545999999999"
+                            href="https://wa.me/554599116751"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ y: -10 }}
@@ -32,7 +32,7 @@ const Contato = () => {
                                 <Phone size={32} />
                             </div>
                             <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic">WhatsApp</h3>
-                            <p className="text-gray-400 mb-6 font-medium">(45) 99999-9999</p>
+                            <p className="text-gray-400 mb-6 font-medium">(45) 9911-6751</p>
                             <span className="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
                                 ABRIR CONVERSA <ExternalLink size={18} />
                             </span>

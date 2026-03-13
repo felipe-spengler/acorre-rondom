@@ -52,7 +52,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3 text-gray-400">
                                 <Phone size={18} className="text-primary" />
-                                <span>(45) 99912-7800</span>
+                                <span>(45) 9911-6751</span>
                             </li>
                             <li className="text-gray-400 italic mt-4">
                                 Rua Sete de Setembro, nº 945, Centro <br />

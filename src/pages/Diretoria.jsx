@@ -7,7 +7,7 @@ const Diretoria = () => {
         { nome: "Alisson Henrique Ferreira", cargo: "Vice Presidente", foto: "/fotos/alisson.jpeg" },
         { nome: "Meridiana Vanessa Kempfer", cargo: "1ª Secretária", foto: "/fotos/meridiana.jpeg" },
         { nome: "Raidiane Nolasco Fernandes", cargo: "2ª Secretária" },
-        { nome: "Veruska Roberta Marinho da Silva Lopes", cargo: "1ª Tesoureira" },
+        { nome: "Veruska Roberta Marinho da Silva Lopes", cargo: "1ª Tesoureira", foto: "/fotos/veruska.jpeg" },
         { nome: "Alexandre Venso", cargo: "2º Tesoureiro", foto: "/fotos/alexandre_venzo.jpeg" },
         { nome: "Vianei Ritter", cargo: "Diretor Técnico", foto: "/fotos/vianei.jpeg" },
         { nome: "Alexandre Luiz Stein", cargo: "Diretor Técnico de Provas", foto: "/fotos/alexandre.jpeg" },
@@ -17,7 +17,7 @@ const Diretoria = () => {
     const conselhoFiscal = [
         { nome: "Arlete Beatris Helfenstein Kempfer", cargo: "Conselho Fiscal" },
         { nome: "Bruna Michele de Souza Dorneles", cargo: "Conselho Fiscal", foto: "/fotos/bruna.jpeg" },
-        { nome: "Gilmar Correa da Cunha", cargo: "Conselho Fiscal" },
+        { nome: "Gilmar Correa da Cunha", cargo: "Conselho Fiscal", foto: "/fotos/gilmar.jpeg" },
     ];
 
     return (

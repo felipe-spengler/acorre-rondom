@@ -129,6 +129,25 @@ const ProjetoMovimentoSaude = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Contact Section */}
+            <section className="py-16 px-4 mb-20">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h2 className="text-3xl font-black italic mb-8 uppercase tracking-widest">DÚVIDAS SOBRE O PROJETO?</h2>
+                    <div className="glass p-10 rounded-[3rem] border border-white/10 inline-block">
+                        <p className="text-gray-400 mb-4 uppercase tracking-widest font-bold">Fale com a Coordenadora</p>
+                        <h3 className="text-2xl font-black mb-6">Priscila Ritter</h3>
+                        <a 
+                            href="https://wa.me/554599725543" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-3 bg-primary text-black px-8 py-4 rounded-2xl font-black hover:bg-primary-light transition-all"
+                        >
+                            <Phone size={20} /> (45) 9972-5543
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
