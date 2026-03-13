@@ -27,7 +27,8 @@ const Inscricoes = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="glass rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative h-[700px] md:h-[900px] lg:h-[1000px]"
+                        className="glass rounded-3xl border border-white/10 shadow-2xl relative h-[700px] md:h-[900px] lg:h-[1000px]"
+                        style={{ overflow: 'hidden' }}
                     >
                         {/* Placeholder / Loading State for the Iframe */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center -z-10">
@@ -35,15 +36,18 @@ const Inscricoes = () => {
                             <p className="text-gray-500 font-bold">Carregando portal de inscrições...</p>
                         </div>
 
-                        {/* 
-                          Melhoramos a altura e removemos margens que podem quebrar a responsividade no mobile.
-                          O width: 100% e min-width: 100% ajudam o iframe a entender o espaço disponível.
+                        {/*
+                          - marginTop negativo: esconde o menu/header do site externo
+                          - height calc: compensa o espaço perdido pelo crop
+                          - overflow: hidden no pai corta o que passar das bordas
+                          - scrolling=no: remove a barra de scroll interna do iframe
                         */}
                         <iframe
                             src="https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida"
-                            className="w-full h-full border-0"
-                            style={{ minWidth: '100%' }}
+                            className="w-full border-0"
+                            style={{ height: 'calc(100% + 60px)', marginTop: '-60px', display: 'block' }}
                             title="Portal de Inscrições"
+                            scrolling="no"
                             allowFullScreen
                         ></iframe>
                     </motion.div>
