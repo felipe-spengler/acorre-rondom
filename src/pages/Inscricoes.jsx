@@ -27,7 +27,7 @@ const Inscricoes = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="glass rounded-3xl border border-white/10 shadow-2xl relative h-[700px] md:h-[900px] lg:h-[1000px]"
+                        className="glass rounded-3xl h-[700px] md:h-[900px] lg:h-[1000px] relative"
                         style={{ overflow: 'hidden' }}
                     >
                         {/* Placeholder / Loading State for the Iframe */}
@@ -37,17 +37,23 @@ const Inscricoes = () => {
                         </div>
 
                         {/*
-                          - marginTop negativo: esconde o menu/header do site externo
-                          - height calc: compensa o espaço perdido pelo crop
-                          - overflow: hidden no pai corta o que passar das bordas
-                          - scrolling=no: remove a barra de scroll interna do iframe
+                          Técnica para esconder barras de scroll de iframes cross-origin:
+                          - O iframe é intencionalmente MAIS LARGO e MAIS ALTO que o container (+20px)
+                            para empurrar as barras de scroll para fora da área visível.
+                          - O container com overflow:hidden corta tudo que ultrapassar a borda.
+                          - marginTop negativo esconde o menu/header do site externo (70px).
+                          - height calc: compensa tanto o menu cortado quanto o scrollbar horizontal.
                         */}
                         <iframe
                             src="https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida"
-                            className="w-full border-0"
-                            style={{ height: 'calc(100% + 60px)', marginTop: '-60px', display: 'block' }}
+                            className="border-0"
+                            style={{
+                                width: 'calc(100% + 20px)',
+                                height: 'calc(100% + 70px + 20px)',
+                                marginTop: '-70px',
+                                display: 'block'
+                            }}
                             title="Portal de Inscrições"
-                            scrolling="no"
                             allowFullScreen
                         ></iframe>
                     </motion.div>
