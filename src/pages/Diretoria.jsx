@@ -3,20 +3,20 @@ import { User } from 'lucide-react';
 
 const Diretoria = () => {
     const diretoria = [
-        { nome: "Adelir Vanderlei Kempfer", cargo: "Presidente" },
-        { nome: "Alisson Henrique Ferreira", cargo: "Vice Presidente" },
-        { nome: "Meridiana Vanessa Kempfer", cargo: "1ª Secretária" },
+        { nome: "Adelir Vanderlei Kempfer", cargo: "Presidente", foto: "/fotos/adelir.jpeg" },
+        { nome: "Alisson Henrique Ferreira", cargo: "Vice Presidente", foto: "/fotos/alisson.jpeg" },
+        { nome: "Meridiana Vanessa Kempfer", cargo: "1ª Secretária", foto: "/fotos/meridiana.jpeg" },
         { nome: "Raidiane Nolasco Fernandes", cargo: "2ª Secretária" },
         { nome: "Veruska Roberta Marinho da Silva Lopes", cargo: "1ª Tesoureira" },
-        { nome: "Alexandre Venso", cargo: "2º Tesoureiro" },
-        { nome: "Vianei Ritter", cargo: "Diretor Técnico" },
-        { nome: "Alexandre Luiz Stein", cargo: "Diretor Técnico de Provas" },
-        { nome: "Priscila Josiane do Nascimento Ritter", cargo: "Diretora de Relações Públicas" },
+        { nome: "Alexandre Venso", cargo: "2º Tesoureiro", foto: "/fotos/alexandre_venzo.jpeg" },
+        { nome: "Vianei Ritter", cargo: "Diretor Técnico", foto: "/fotos/vianei.jpeg" },
+        { nome: "Alexandre Luiz Stein", cargo: "Diretor Técnico de Provas", foto: "/fotos/alexandre.jpeg" },
+        { nome: "Priscila Josiane do Nascimento Ritter", cargo: "Diretora de Relações Públicas", foto: "/fotos/priscila.jpeg" },
     ];
 
     const conselhoFiscal = [
         { nome: "Arlete Beatris Helfenstein Kempfer", cargo: "Conselho Fiscal" },
-        { nome: "Bruna Michele de Souza Dorneles", cargo: "Conselho Fiscal" },
+        { nome: "Bruna Michele de Souza Dorneles", cargo: "Conselho Fiscal", foto: "/fotos/bruna.jpeg" },
         { nome: "Gilmar Correa da Cunha", cargo: "Conselho Fiscal" },
     ];
 
@@ -47,8 +47,12 @@ const Diretoria = () => {
                                 transition={{ delay: index * 0.05 }}
                                 className="glass rounded-3xl p-6 border border-white/10 flex items-center gap-6 group hover:border-primary/50 transition-all duration-300"
                             >
-                                <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/20 transition-colors">
-                                    <User className="text-gray-500 group-hover:text-primary transition-colors" size={40} />
+                                <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/20 transition-colors overflow-hidden shrink-0">
+                                    {membro.foto ? (
+                                        <img src={membro.foto} alt={membro.nome} className="w-full h-full object-cover" />
+                                    ) : (
+                                        <User className="text-gray-500 group-hover:text-primary transition-colors" size={40} />
+                                    )}
                                 </div>
                                 <div className="flex-1">
                                     <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{membro.nome}</h3>
@@ -68,8 +72,12 @@ const Diretoria = () => {
                                 transition={{ delay: index * 0.05 }}
                                 className="glass rounded-3xl p-6 border border-white/10 flex items-center gap-6 group hover:border-primary/50 transition-all duration-300"
                             >
-                                <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/20 transition-colors">
-                                    <User className="text-gray-500 group-hover:text-primary transition-colors" size={40} />
+                                <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/20 transition-colors overflow-hidden shrink-0">
+                                    {membro.foto ? (
+                                        <img src={membro.foto} alt={membro.nome} className="w-full h-full object-cover" />
+                                    ) : (
+                                        <User className="text-gray-500 group-hover:text-primary transition-colors" size={40} />
+                                    )}
                                 </div>
                                 <div className="flex-1">
                                     <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{membro.nome}</h3>

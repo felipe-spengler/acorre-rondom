@@ -11,9 +11,9 @@ const Footer = () => {
                     <div className="col-span-1 md:col-span-2">
                         <Link to="/" className="flex items-center space-x-3 mb-6 group">
                             <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-primary group-hover:scale-110 transition-transform">
-                                <img src={logoImg} alt="ACORRE Logo" className="w-full h-full object-cover" />
+                                <img src={logoImg} alt="AcorreRondon Logo" className="w-full h-full object-cover" />
                             </div>
-                            <span className="text-3xl font-black tracking-tighter italic">ACORRE</span>
+                            <span className="text-3xl font-black tracking-tighter italic">AcorreRondon</span>
                         </Link>
                         <p className="text-gray-400 max-w-sm mb-8 leading-relaxed">
                             O maior grupo de corrida de Marechal Cândido Rondon e região. Transformando vidas através do esporte e da superação.
@@ -63,7 +63,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-white/5 pt-10 flex flex-col md:row justify-between items-center gap-4 text-sm text-gray-500">
-                    <p>© 2026 ACORRE RONDON. Todos os direitos reservados.</p>
+                    <p>© 2026 AcorreRondon. Todos os direitos reservados.</p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-white">Privacidade</a>
                         <a href="#" className="hover:text-white">Termos</a>

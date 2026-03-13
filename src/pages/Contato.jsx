@@ -28,7 +28,7 @@ const Contato = () => {
                             whileHover={{ y: -10 }}
                             className="glass p-10 rounded-3xl border border-white/10 flex flex-col items-center text-center group"
                         >
-                            <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-[0_0_30px_rgba(255,77,0,0.1)]">
+                            <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
                                 <Phone size={32} />
                             </div>
                             <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic">WhatsApp</h3>
@@ -46,7 +46,7 @@ const Contato = () => {
                             whileHover={{ y: -10 }}
                             className="glass p-10 rounded-3xl border border-white/10 flex flex-col items-center text-center group"
                         >
-                            <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-[0_0_30px_rgba(255,77,0,0.1)]">
+                            <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
                                 <Instagram size={32} />
                             </div>
                             <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic">Instagram</h3>
@@ -61,7 +61,7 @@ const Contato = () => {
                             whileHover={{ y: -10 }}
                             className="glass p-10 rounded-3xl border border-white/10 flex flex-col items-center text-center group"
                         >
-                            <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-[0_0_30px_rgba(255,77,0,0.1)]">
+                            <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
                                 <Mail size={32} />
                             </div>
                             <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic">E-mail</h3>

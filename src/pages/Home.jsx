@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Trophy, Users, Calendar, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import heroImg from '../assets/hero.png';
+import heroImg from '../assets/imagem_hero.jpeg';
 import shoesImg from '../assets/shoes.png';
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
                     <img
                         src={heroImg}
                         alt="Runner"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover brightness-[0.6] contrast-[1.1] saturate-[0.9]"
                     />
                     <div className="absolute inset-0 bg-hero-gradient"></div>
                 </div>

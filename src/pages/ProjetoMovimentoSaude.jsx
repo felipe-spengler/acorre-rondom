@@ -34,7 +34,7 @@ const ProjetoMovimentoSaude = () => {
                                 animate={{ opacity: 1 }}
                                 className="inline-block px-4 py-1 rounded-full border border-primary text-primary text-sm font-bold mb-6"
                             >
-                                INICIATIVA ACORRE
+                                INICIATIVA AcorreRondon
                             </motion.span>
                             <motion.h1
                                 initial={{ opacity: 0, x: -20 }}
@@ -106,7 +106,7 @@ const ProjetoMovimentoSaude = () => {
                     </h2>
                     <div className="space-y-6 text-lg text-gray-300">
                         <p>
-                            O <strong>Projeto Movimento e Saúde</strong> é uma realização da ACORRE que visa democratizar o acesso à prática esportiva orientada em nossa cidade.
+                            O <strong>Projeto Movimento e Saúde</strong> é uma realização da AcorreRondon que visa democratizar o acesso à prática esportiva orientada em nossa cidade.
                         </p>
                         <ul className="space-y-4">
                             <li className="flex gap-4">

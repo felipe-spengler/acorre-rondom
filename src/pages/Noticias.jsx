@@ -8,7 +8,7 @@ const Noticias = () => {
             title: "Prepare-se para o nosso próximo grande desafio em Marechal",
             excerpt: "As inscrições estão abertas para a corrida de aniversário da cidade. Venha bater seu recorde pessoal conosco.",
             date: "15 Out 2025",
-            author: "Comunicação ACORRE",
+            author: "Comunicação AcorreRondon",
             image: "https://images.unsplash.com/photo-1552674650-3a445e00f21e?auto=format&fit=crop&q=80&w=800",
             category: "Eventos"
         },
@@ -23,7 +23,7 @@ const Noticias = () => {
         },
         {
             id: 3,
-            title: "ACORRE conquista pódios em maratona regional",
+            title: "AcorreRondon conquista pódios em maratona regional",
             excerpt: "Nossos atletas deram um show de superação e trouxeram diversos troféus para casa no último final de semana.",
             date: "05 Out 2025",
             author: "Secretaria",
@@ -45,7 +45,7 @@ const Noticias = () => {
                             ÚLTIMAS <span className="text-primary">NOTÍCIAS</span>
                         </motion.h1>
                         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                            Fique por dentro de tudo o que acontece no mundo da ACORRE e do atletismo regional.
+                            Fique por dentro de tudo o que acontece no mundo da AcorreRondon e do atletismo regional.
                         </p>
                     </div>
 
