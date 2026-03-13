@@ -27,8 +27,7 @@ const Resultados = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="glass rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative"
-                        style={{ height: '800px' }}
+                        className="glass rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative h-[700px] md:h-[900px] lg:h-[1000px]"
                     >
                         {/* Placeholder / Loading State for the Iframe */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center -z-10">
@@ -38,8 +37,8 @@ const Resultados = () => {
 
                         <iframe
                             src="https://esportivo.techinteligente.site/races/63/results"
-                            className="w-full border-0"
-                            style={{ height: 'calc(100% + 60px)', marginTop: '-60px' }}
+                            className="w-full h-full border-0"
+                            style={{ minWidth: '100%' }}
                             title="Portal de Resultados"
                             allowFullScreen
                         ></iframe>
