@@ -65,7 +65,7 @@ const Contato = () => {
                                 <Mail size={32} />
                             </div>
                             <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic">E-mail</h3>
-                            <p className="text-gray-400 mb-6 font-medium">contato@acorrerondon.com.br</p>
+                            <p className="text-gray-400 mb-6 font-medium">acorrerondon@outlook.com</p>
                             <span className="text-primary font-bold">RESPONDEMOS EM ATÉ 24H</span>
                         </motion.div>
                     </div>

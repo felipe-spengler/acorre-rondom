@@ -6,7 +6,7 @@ const Diretoria = () => {
         { nome: "Adelir Vanderlei Kempfer", cargo: "Presidente", foto: "/fotos/adelir.jpeg" },
         { nome: "Alisson Henrique Ferreira", cargo: "Vice Presidente", foto: "/fotos/alisson.jpeg" },
         { nome: "Meridiana Vanessa Kempfer", cargo: "1ª Secretária", foto: "/fotos/meridiana.jpeg" },
-        { nome: "Raidiane Nolasco Fernandes", cargo: "2ª Secretária" },
+        { nome: "Raidiane Nolasco Fernandes", cargo: "2ª Secretária", foto: "/fotos/raidiane.jpeg" },
         { nome: "Veruska Roberta Marinho da Silva Lopes", cargo: "1ª Tesoureira", foto: "/fotos/veruska.jpeg" },
         { nome: "Alexandre Venso", cargo: "2º Tesoureiro", foto: "/fotos/alexandre_venzo.jpeg" },
         { nome: "Vianei Ritter", cargo: "Diretor Técnico", foto: "/fotos/vianei.jpeg" },
