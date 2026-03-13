@@ -14,7 +14,7 @@ const Home = () => {
                     <img
                         src={heroImg}
                         alt="Runner"
-                        className="w-full h-full object-cover brightness-[0.6] contrast-[1.1] saturate-[0.9]"
+                        className="w-full h-full object-cover brightness-[0.9] contrast-[1.1] saturate-[0.9]"
                     />
                     <div className="absolute inset-0 bg-hero-gradient"></div>
                 </div>

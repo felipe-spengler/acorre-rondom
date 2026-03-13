@@ -35,7 +35,7 @@ const Navbar = () => {
                     <Link to="/" className="flex items-center space-x-3 group">
                         <motion.div
                             whileHover={{ rotate: -5, scale: 1.1 }}
-                            className="w-10 h-10 rounded-lg overflow-hidden border border-primary transition-transform shadow-[0_0_15px_rgba(16,185,129,0.3)] group-hover:shadow-[0_0_25px_rgba(16,185,129,0.6)]"
+                            className="w-10 h-10 rounded-lg overflow-hidden border border-primary transition-transform shadow-[0_0_15px_rgba(188,254,47,0.3)] group-hover:shadow-[0_0_25px_rgba(188,254,47,0.6)]"
                         >
                             <img src={logoImg} alt="AcorreRondon" className="w-full h-full object-cover" />
                         </motion.div>

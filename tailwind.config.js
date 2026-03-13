@@ -8,9 +8,9 @@ export default {
         extend: {
             colors: {
                 primary: {
-                    DEFAULT: '#10B981',
-                    dark: '#059669',
-                    light: '#34D399',
+                    DEFAULT: '#BCFE2F',
+                    dark: '#84CC16',
+                    light: '#D9F99D',
                 },
                 dark: {
                     DEFAULT: '#0A0A0A',
@@ -21,7 +21,7 @@ export default {
                 outfit: ['Outfit', 'sans-serif'],
             },
             backgroundImage: {
-                'hero-gradient': 'linear-gradient(to bottom, rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 1))',
+                'hero-gradient': 'linear-gradient(to bottom, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 1))',
             }
         },
     },
