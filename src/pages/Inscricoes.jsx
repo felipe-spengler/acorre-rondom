@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
+import { useConfig } from '../lib/useConfig';
+
 const Inscricoes = () => {
+    const { getVal } = useConfig();
+    const iframeUrl = getVal('url_iframe_inscricoes', 'https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida');
+
     return (
         <div className="pt-24 min-h-screen bg-dark">
-            {/* Header */}
+            {/* ... restante do header ... */}
             <section className="py-16 px-4">
                 <div className="max-w-7xl mx-auto text-center">
                     <motion.h1
@@ -36,16 +41,8 @@ const Inscricoes = () => {
                             <p className="text-gray-500 font-bold">Carregando portal de inscrições...</p>
                         </div>
 
-                        {/*
-                          Técnica para esconder barras de scroll de iframes cross-origin:
-                          - O iframe é intencionalmente MAIS LARGO e MAIS ALTO que o container (+20px)
-                            para empurrar as barras de scroll para fora da área visível.
-                          - O container com overflow:hidden corta tudo que ultrapassar a borda.
-                          - marginTop negativo esconde o menu/header do site externo (70px).
-                          - height calc: compensa tanto o menu cortado quanto o scrollbar horizontal.
-                        */}
                         <iframe
-                            src="https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida"
+                            src={iframeUrl}
                             className="border-0"
                             style={{
                                 width: 'calc(100% + 20px)',
@@ -60,7 +57,7 @@ const Inscricoes = () => {
 
                     <div className="mt-8 flex justify-center">
                         <a
-                            href="https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida"
+                            href={iframeUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-medium"
@@ -73,5 +70,6 @@ const Inscricoes = () => {
         </div>
     );
 };
+
 
 export default Inscricoes;

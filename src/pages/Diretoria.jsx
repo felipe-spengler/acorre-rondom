@@ -1,24 +1,43 @@
 import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
 
-const Diretoria = () => {
-    const diretoria = [
-        { nome: "Adelir Vanderlei Kempfer", cargo: "Presidente", foto: "/fotos/adelir.jpeg" },
-        { nome: "Alisson Henrique Ferreira", cargo: "Vice Presidente", foto: "/fotos/alisson.jpeg" },
-        { nome: "Meridiana Vanessa Kempfer", cargo: "1ª Secretária", foto: "/fotos/meridiana.jpeg" },
-        { nome: "Raidiane Nolasco Fernandes", cargo: "2ª Secretária", foto: "/fotos/raidiane.jpeg" },
-        { nome: "Veruska Roberta Marinho da Silva Lopes", cargo: "1ª Tesoureira", foto: "/fotos/veruska.jpeg" },
-        { nome: "Alexandre Venso", cargo: "2º Tesoureiro", foto: "/fotos/alexandre_venzo.jpeg" },
-        { nome: "Vianei Ritter", cargo: "Diretor Técnico", foto: "/fotos/vianei.jpeg" },
-        { nome: "Alexandre Luiz Stein", cargo: "Diretor Técnico de Provas", foto: "/fotos/alexandre.jpeg" },
-        { nome: "Priscila Josiane do Nascimento Ritter", cargo: "Diretora de Relações Públicas", foto: "/fotos/priscila.jpeg" },
-    ];
+import { useState, useEffect } from 'react';
+import { pb, getFileUrl } from '../lib/pocketbase';
 
-    const conselhoFiscal = [
-        { nome: "Arlete Beatris Helfenstein Kempfer", cargo: "Conselho Fiscal" },
-        { nome: "Bruna Michele de Souza Dorneles", cargo: "Conselho Fiscal", foto: "/fotos/bruna.jpeg" },
-        { nome: "Gilmar Correa da Cunha", cargo: "Conselho Fiscal", foto: "/fotos/gilmar.jpeg" },
-    ];
+const Diretoria = () => {
+    const [diretoriaItems, setDiretoriaItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchDiretoria = async () => {
+            try {
+                const records = await pb.collection('diretoria').getFullList({
+                    sort: 'ordem',
+                });
+                setDiretoriaItems(records);
+            } catch (err) {
+                console.error("Erro ao buscar diretoria:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDiretoria();
+    }, []);
+
+    const diretoria = diretoriaItems.length > 0 
+        ? diretoriaItems.filter(m => !m.conselho)
+        : [
+            { nome: "Adelir Vanderlei Kempfer", cargo: "Presidente", foto: "/fotos/adelir.jpeg" },
+            { nome: "Alisson Henrique Ferreira", cargo: "Vice Presidente", foto: "/fotos/alisson.jpeg" },
+          ];
+
+    const conselhoFiscal = diretoriaItems.length > 0
+        ? diretoriaItems.filter(m => m.conselho)
+        : [
+            { nome: "Arlete Beatris Helfenstein Kempfer", cargo: "Conselho Fiscal" },
+          ];
+
 
     return (
         <div className="pt-24 min-h-screen bg-dark">
@@ -49,11 +68,12 @@ const Diretoria = () => {
                             >
                                 <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/20 transition-colors overflow-hidden shrink-0">
                                     {membro.foto ? (
-                                        <img src={membro.foto} alt={membro.nome} className="w-full h-full object-cover" />
+                                        <img src={membro.id ? getFileUrl(membro, membro.foto) : membro.foto} alt={membro.nome} className="w-full h-full object-cover" />
                                     ) : (
                                         <User className="text-gray-500 group-hover:text-primary transition-colors" size={40} />
                                     )}
                                 </div>
+
                                 <div className="flex-1">
                                     <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{membro.nome}</h3>
                                     <p className="text-sm text-gray-400 font-medium uppercase tracking-wider">{membro.cargo}</p>

@@ -1,36 +1,43 @@
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 
+import { useState, useEffect } from 'react';
+import { pb, getFileUrl } from '../lib/pocketbase';
+
 const Noticias = () => {
-    const news = [
+    const [news, setNews] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchNews = async () => {
+            try {
+                const records = await pb.collection('noticias').getFullList({
+                    sort: '-data',
+                });
+                setNews(records);
+            } catch (err) {
+                console.error("Erro ao buscar notícias:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchNews();
+    }, []);
+
+    // Se estiver vazio e não carregando, usar dados de fallback ou mostrar aviso
+    const displayNews = news.length > 0 ? news : [
         {
-            id: 1,
-            title: "Prepare-se para o nosso próximo grande desafio em Marechal",
-            excerpt: "As inscrições estão abertas para a corrida de aniversário da cidade. Venha bater seu recorde pessoal conosco.",
-            date: "15 Out 2025",
-            author: "Comunicação AcorreRondon",
-            image: "https://images.unsplash.com/photo-1552674650-3a445e00f21e?auto=format&fit=crop&q=80&w=800",
-            category: "Eventos"
-        },
-        {
-            id: 2,
-            title: "Os benefícios do treino em grupo para corredores amadores",
-            excerpt: "Descubra como a motivação coletiva pode transformar sua performance e consistência nos treinos diários.",
-            date: "10 Out 2025",
-            author: "Departamento Técnico",
-            image: "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&q=80&w=800",
-            category: "Dicas"
-        },
-        {
-            id: 3,
-            title: "AcorreRondon conquista pódios em maratona regional",
-            excerpt: "Nossos atletas deram um show de superação e trouxeram diversos troféus para casa no último final de semana.",
-            date: "05 Out 2025",
-            author: "Secretaria",
-            image: "https://images.unsplash.com/photo-1530143311094-34d807799e8f?auto=format&fit=crop&q=80&w=800",
-            category: "Conquistas"
+            id: 'fallback-1',
+            titulo: "Prepare-se para o nosso próximo grande desafio em Marechal",
+            resumo: "As inscrições estão abertas para a corrida de aniversário da cidade. Venha bater seu recorde pessoal conosco.",
+            data: "15 Out 2025",
+            autor: "Comunicação AcorreRondon",
+            imagem: "https://images.unsplash.com/photo-1552674650-3a445e00f21e?auto=format&fit=crop&q=80&w=800",
+            categoria: "Eventos"
         }
     ];
+
 
     return (
         <div className="pt-24 min-h-screen bg-dark">
@@ -50,7 +57,7 @@ const Noticias = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {news.map((item, index) => (
+                        {displayNews.map((item, index) => (
                             <motion.article
                                 key={item.id}
                                 initial={{ opacity: 0, y: 20 }}
@@ -60,24 +67,24 @@ const Noticias = () => {
                             >
                                 <div className="h-48 overflow-hidden relative">
                                     <img
-                                        src={item.image}
-                                        alt={item.title}
+                                        src={item.id.startsWith('fallback') ? item.imagem : getFileUrl(item, item.imagem)}
+                                        alt={item.titulo}
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute top-4 left-4 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full">
-                                        {item.category}
+                                        {item.categoria}
                                     </div>
                                 </div>
                                 <div className="p-6 flex flex-col flex-grow">
                                     <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
-                                        <span className="flex items-center gap-1"><Calendar size={14} /> {item.date}</span>
-                                        <span className="flex items-center gap-1"><User size={14} /> {item.author}</span>
+                                        <span className="flex items-center gap-1"><Calendar size={14} /> {item.data?.split(' ')[0] || item.data}</span>
+                                        <span className="flex items-center gap-1"><User size={14} /> {item.autor}</span>
                                     </div>
                                     <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                                        {item.title}
+                                        {item.titulo}
                                     </h3>
                                     <p className="text-gray-400 text-sm mb-6 flex-grow">
-                                        {item.excerpt}
+                                        {item.resumo}
                                     </p>
                                     <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase italic">
                                         Ler mais <ArrowRight size={16} />
@@ -86,6 +93,7 @@ const Noticias = () => {
                             </motion.article>
                         ))}
                     </div>
+
                 </div>
             </section>
         </div>

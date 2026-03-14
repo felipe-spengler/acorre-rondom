@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
+import { useConfig } from '../lib/useConfig';
+
 const Resultados = () => {
+    const { getVal } = useConfig();
+    const iframeUrl = getVal('url_iframe_resultados', 'https://esportivo.techinteligente.site/races/63/results');
+
     return (
         <div className="pt-24 min-h-screen bg-dark">
-            {/* Header */}
+            {/* ... restante do header ... */}
             <section className="py-16 px-4">
                 <div className="max-w-7xl mx-auto text-center">
                     <motion.h1
@@ -37,7 +42,7 @@ const Resultados = () => {
                         </div>
 
                         <iframe
-                            src="https://esportivo.techinteligente.site/races/63/results"
+                            src={iframeUrl}
                             className="border-0"
                             style={{
                                 width: 'calc(100% + 20px)',
@@ -52,7 +57,7 @@ const Resultados = () => {
 
                     <div className="mt-8 flex justify-center">
                         <a
-                            href="https://esportivo.techinteligente.site/races/63/results"
+                            href={iframeUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-medium"
@@ -65,5 +70,6 @@ const Resultados = () => {
         </div>
     );
 };
+
 
 export default Resultados;

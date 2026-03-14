@@ -1,29 +1,38 @@
-# Build stage
-FROM node:20-alpine AS build
-
+# Build stage para o Frontend
+FROM node:20-alpine AS frontend-build
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm install
-
 COPY . .
 RUN npm run build
 
-# Production stage
-FROM nginx:stable-alpine
+# Stage final (PocketBase + Frontend estático)
+FROM alpine:latest
 
-COPY --from=build /app/dist /usr/share/nginx/html
+# Instalar dependências básicas
+RUN apk add --no-cache \
+    ca-certificates \
+    unzip \
+    wget \
+    bash
 
-# Custom nginx config to handle SPA routing if needed
-RUN echo 'server { \
-    listen 80; \
-    location / { \
-        root /usr/share/nginx/html; \
-        index index.html index.htm; \
-        try_files $uri $uri/ /index.html; \
-    } \
-}' > /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-EXPOSE 80
+# Copiar o binário do PocketBase da sua pasta local (já que baixamos)
+# Ou podemos baixar direto no Docker para garantir que é a versão linux
+RUN wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.21/pocketbase_0.22.21_linux_amd64.zip \
+    && unzip pocketbase_0.22.21_linux_amd64.zip -d /app/ \
+    && rm pocketbase_0.22.21_linux_amd64.zip \
+    && chmod +x /app/pocketbase
 
-CMD ["nginx", "-g", "daemon off;"]
+# Copiar os arquivos gerados do frontend (Vite)
+COPY --from=frontend-build /app/dist /app/pb_public
+
+# Copiar migrações para o banco rodar automático no deploy
+COPY pb/pb_migrations /app/pb_migrations
+
+# Expor a porta padrão do PocketBase
+EXPOSE 8080
+
+# Comando para rodar o PocketBase servindo o frontend estático na pasta pb_public
+CMD ["/app/pocketbase", "serve", "--http=0.0.0.0:8080", "--dir=/app/pb_data"]

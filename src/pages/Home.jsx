@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import heroImg from '../assets/imagem_hero.jpeg';
 import shoesImg from '../assets/shoes.png';
 
+import { useConfig } from '../lib/useConfig';
+
 const Home = () => {
+    const { getVal } = useConfig();
+
     return (
         <div className="relative">
             {/* Hero Section */}
@@ -27,14 +31,14 @@ const Home = () => {
                         className="max-w-3xl"
                     >
                         <span className="inline-block bg-primary px-3 py-1 text-xs font-black uppercase tracking-widest text-black mb-6">
-                            Temporada 2026
+                            {getVal('home_season_tag', 'Temporada 2026')}
                         </span>
                         <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter leading-none mb-6">
-                            DESAFIE O SEU <br />
-                            <span className="text-primary italic">PRÓPRIO RITMO</span>
+                            {getVal('home_hero_title', 'DESAFIE O SEU').split('\n')[0]} <br />
+                            <span className="text-primary italic">{getVal('home_hero_title', 'PRÓPRIO RITMO').split('\n')[1] || 'PRÓPRIO RITMO'}</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-xl">
-                            Mais do que uma corrida, uma experiência urbana. Una-se a experiência única de superação, resistência e muita adrenalina.
+                            {getVal('home_hero_subtitle', 'Mais do que uma corrida, uma experiência urbana. Una-se a experiência única de superação, resistência e muita adrenalina.')}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link to="/inscricoes" className="flex items-center justify-center gap-2 bg-primary text-black px-10 py-5 rounded-full font-black text-lg hover:bg-primary-light transition-all transform hover:scale-105">
@@ -46,26 +50,6 @@ const Home = () => {
                         </div>
                     </motion.div>
                 </div>
-
-                {/* Floating Stats */}
-                {/* 
-                <div className="absolute bottom-10 left-10 hidden xl:flex gap-12 z-10 px-10 py-6 glass rounded-2xl">
-                    <div className="flex flex-col">
-                        <span className="text-3xl font-black text-primary italic">15K+</span>
-                        <span className="text-xs uppercase tracking-widest text-gray-400">Atletas</span>
-                    </div>
-                    <div className="w-[1px] bg-white/10"></div>
-                    <div className="flex flex-col">
-                        <span className="text-3xl font-black text-primary italic">12</span>
-                        <span className="text-xs uppercase tracking-widest text-gray-400">Provas/Ano</span>
-                    </div>
-                    <div className="w-[1px] bg-white/10"></div>
-                    <div className="flex flex-col">
-                        <span className="text-3xl font-black text-primary italic">R$ 50K</span>
-                        <span className="text-xs uppercase tracking-widest text-gray-400">Em Prêmios</span>
-                    </div>
-                </div>
-                */}
             </section>
 
             {/* Features/Highlights */}
@@ -136,7 +120,7 @@ const Home = () => {
                                 </li>
                             </ul>
                             <a
-                                href="https://www.instagram.com/acorrerondon/"
+                                href={getVal('social_instagram', 'https://www.instagram.com/acorrerondon/')}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-primary font-black flex items-center gap-2 hover:gap-4 transition-all"
@@ -155,7 +139,7 @@ const Home = () => {
                         PRONTO PARA LARGAR?
                     </h2>
                     <p className="text-xl text-black/80 font-bold mb-12">
-                        As vagas para o Circuito Outono já estão disponíveis. Não perca seu lugar no grid.
+                        {getVal('home_cta_text', 'As vagas para o Circuito Outono já estão disponíveis. Não perca seu lugar no grid.')}
                     </p>
                     <Link to="/inscricoes" className="inline-block bg-black text-white px-12 py-6 rounded-full font-black text-xl hover:bg-dark-lighter transition-all transform hover:scale-110">
                         GARANTIR MINHA VAGA

@@ -10,6 +10,13 @@ import ProjetoMovimentoSaude from './pages/ProjetoMovimentoSaude';
 import Resultados from './pages/Resultados';
 
 import ScrollToTop from './components/ScrollToTop';
+import { pb } from './lib/pocketbase';
+
+const AdminRedirect = () => {
+  window.location.href = `${pb.baseUrl}/_/`;
+  return null;
+};
+
 
 function App() {
   return (
@@ -26,6 +33,7 @@ function App() {
             <Route path="/projeto-saude" element={<ProjetoMovimentoSaude />} />
             <Route path="/resultados" element={<Resultados />} />
             <Route path="/contato" element={<Contato />} />
+            <Route path="/admin" element={<AdminRedirect />} />
           </Routes>
         </main>
         <Footer />
