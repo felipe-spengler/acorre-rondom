@@ -33,11 +33,13 @@ migrate((db) => {
       schema: [
         { name: "chave", type: "text", required: true, unique: true },
         { name: "valor", type: "text" },
+        { name: "arquivo", type: "file", options: { maxSelect: 1, maxSize: 5242880 } },
         { name: "descricao", type: "text" }
       ],
       listRule: "",
       viewRule: "",
     }
+
   ];
 
   const dao = new Dao(db);

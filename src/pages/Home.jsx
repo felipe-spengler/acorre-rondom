@@ -7,7 +7,7 @@ import shoesImg from '../assets/shoes.png';
 import { useConfig } from '../lib/useConfig';
 
 const Home = () => {
-    const { getVal } = useConfig();
+    const { getVal, getFile } = useConfig();
 
     return (
         <div className="relative">
@@ -16,12 +16,13 @@ const Home = () => {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src={heroImg}
+                        src={getFile('home_hero_image', heroImg)}
                         alt="Runner"
                         className="w-full h-full object-cover brightness-[0.9] contrast-[1.1] saturate-[0.9]"
                     />
                     <div className="absolute inset-0 bg-hero-gradient"></div>
                 </div>
+
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
                     <motion.div
@@ -97,8 +98,9 @@ const Home = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 className="relative z-10"
                             >
-                                <img src={shoesImg} alt="Shoes" className="rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
+                                <img src={getFile('home_about_image', shoesImg)} alt="Shoes" className="rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
                             </motion.div>
+
                             <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
                         </div>
                         <div className="lg:w-1/2">

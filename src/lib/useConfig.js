@@ -2,19 +2,18 @@ import { useState, useEffect } from 'react';
 import { pb } from './pocketbase';
 
 export const useConfig = (chaves = []) => {
-    const [config, setConfig] = useState({});
+    const [configRecords, setConfigRecords] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchConfigs = async () => {
             try {
-                // Se chaves estiver vazio, pega tudo
                 const records = await pb.collection('configuracoes').getFullList();
-                const configMap = {};
+                const recordMap = {};
                 records.forEach(r => {
-                    configMap[r.chave] = r.valor;
+                    recordMap[r.chave] = r;
                 });
-                setConfig(configMap);
+                setConfigRecords(recordMap);
             } catch (err) {
                 console.error("Erro ao buscar configurações:", err);
             } finally {
@@ -25,10 +24,16 @@ export const useConfig = (chaves = []) => {
         fetchConfigs();
     }, []);
 
-    // Função para pegar valor com fallback
     const getVal = (chave, fallback = "") => {
-        return config[chave] || fallback;
+        return configRecords[chave]?.valor || fallback;
     };
 
-    return { config, getVal, loading };
+    const getFile = (chave, fallback = null) => {
+        const record = configRecords[chave];
+        if (!record || !record.arquivo) return fallback;
+        return getFileUrl(record, record.arquivo);
+    };
+
+    return { getVal, getFile, loading };
 };
+
