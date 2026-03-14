@@ -8,7 +8,7 @@ migrate((db) => {
         { name: "resumo", type: "text" },
         { name: "data", type: "date" },
         { name: "autor", type: "text" },
-        { name: "categoria", type: "select", options: { values: ["Eventos", "Dicas", "Conquistas"] } },
+        { name: "categoria", type: "select", options: { values: ["Eventos", "Dicas", "Conquistas"], maxSelect: 1 } },
         { name: "imagem", type: "file", options: { maxSelect: 1, maxSize: 5242880, mimeTypes: ["image/jpeg", "image/png", "image/svg+xml", "image/gif", "image/webp"] } }
       ],
       listRule: "",
