@@ -25,18 +25,17 @@ const Diretoria = () => {
         fetchDiretoria();
     }, []);
 
-    const diretoria = diretoriaItems.length > 0 
-        ? diretoriaItems.filter(m => !m.conselho)
-        : [
-            { nome: "Adelir Vanderlei Kempfer", cargo: "Presidente", foto: "/fotos/adelir.jpeg" },
-            { nome: "Alisson Henrique Ferreira", cargo: "Vice Presidente", foto: "/fotos/alisson.jpeg" },
-          ];
+    if (loading) {
+        return (
+            <div className="pt-24 min-h-screen bg-dark flex items-center justify-center">
+                <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        );
+    }
 
-    const conselhoFiscal = diretoriaItems.length > 0
-        ? diretoriaItems.filter(m => m.conselho)
-        : [
-            { nome: "Arlete Beatris Helfenstein Kempfer", cargo: "Conselho Fiscal" },
-          ];
+    const diretoria = diretoriaItems.filter(m => !m.conselho);
+    const conselhoFiscal = diretoriaItems.filter(m => m.conselho);
+
 
 
     return (

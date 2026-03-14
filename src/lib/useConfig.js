@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { pb } from './pocketbase';
+import { pb, getFileUrl } from './pocketbase';
 
 export const useConfig = (chaves = []) => {
     const [configRecords, setConfigRecords] = useState({});

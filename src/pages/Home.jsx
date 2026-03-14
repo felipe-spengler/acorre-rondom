@@ -32,14 +32,23 @@ const Home = () => {
                         className="max-w-3xl"
                     >
                         <span className="inline-block bg-primary px-3 py-1 text-xs font-black uppercase tracking-widest text-black mb-6">
-                            {getVal('home_season_tag', 'Temporada 2026')}
+                            {getVal('home_season_tag')}
                         </span>
                         <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter leading-none mb-6">
-                            {getVal('home_hero_title', 'DESAFIE O SEU').split('\n')[0]} <br />
-                            <span className="text-primary italic">{getVal('home_hero_title', 'PRÓPRIO RITMO').split('\n')[1] || 'PRÓPRIO RITMO'}</span>
+                            {getVal('home_hero_title').includes('\n') ? (
+                                <>
+                                    {getVal('home_hero_title').split('\n').map((line, i) => (
+                                        <span key={i} className={i === 1 ? "text-primary italic" : ""}>
+                                            {line} {i === 0 && <br />}
+                                        </span>
+                                    ))}
+                                </>
+                            ) : (
+                                <span>{getVal('home_hero_title', 'DESAFIE O SEU PRÓPRIO RITMO')}</span>
+                            )}
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-xl">
-                            {getVal('home_hero_subtitle', 'Mais do que uma corrida, uma experiência urbana. Una-se a experiência única de superação, resistência e muita adrenalina.')}
+                            {getVal('home_hero_subtitle')}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link to="/inscricoes" className="flex items-center justify-center gap-2 bg-primary text-black px-10 py-5 rounded-full font-black text-lg hover:bg-primary-light transition-all transform hover:scale-105">
@@ -122,7 +131,7 @@ const Home = () => {
                                 </li>
                             </ul>
                             <a
-                                href={getVal('social_instagram', 'https://www.instagram.com/acorrerondon/')}
+                                href={getVal('social_instagram')}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-primary font-black flex items-center gap-2 hover:gap-4 transition-all"
@@ -141,7 +150,7 @@ const Home = () => {
                         PRONTO PARA LARGAR?
                     </h2>
                     <p className="text-xl text-black/80 font-bold mb-12">
-                        {getVal('home_cta_text', 'As vagas para o Circuito Outono já estão disponíveis. Não perca seu lugar no grid.')}
+                        {getVal('home_cta_text')}
                     </p>
                     <Link to="/inscricoes" className="inline-block bg-black text-white px-12 py-6 rounded-full font-black text-xl hover:bg-dark-lighter transition-all transform hover:scale-110">
                         GARANTIR MINHA VAGA

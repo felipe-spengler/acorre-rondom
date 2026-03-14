@@ -5,7 +5,7 @@ import { useConfig } from '../lib/useConfig';
 
 const Resultados = () => {
     const { getVal } = useConfig();
-    const iframeUrl = getVal('url_iframe_resultados', 'https://esportivo.techinteligente.site/races/63/results');
+    const iframeUrl = getVal('url_iframe_resultados');
 
     return (
         <div className="pt-24 min-h-screen bg-dark">

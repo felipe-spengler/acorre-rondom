@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Zap, Mail, Phone } from 'lucide-react';
 import logoImg from '../assets/logo.jpg';
 
+import { useConfig } from '../lib/useConfig';
+
 const Footer = () => {
+    const { getVal } = useConfig();
+
     return (
         <footer className="bg-dark-lighter border-t border-white/5 pt-20 pb-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,10 +23,10 @@ const Footer = () => {
                             O maior grupo de corrida de Marechal Cândido Rondon e região. Transformando vidas através do esporte e da superação.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="https://www.instagram.com/acorrerondon/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all">
+                            <a href={getVal('social_instagram')} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all">
                                 <Instagram size={20} />
                             </a>
-                            <a href="https://www.facebook.com/acorre.rondon.1/?locale=pt_BR" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all">
+                            <a href={getVal('social_facebook')} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-all">
                                 <Facebook size={20} />
                             </a>
                         </div>
@@ -48,19 +52,19 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li className="flex items-center gap-3 text-gray-400">
                                 <Mail size={18} className="text-primary" />
-                                <span>acorrerondon@outlook.com</span>
+                                <span>{getVal('contato_email')}</span>
                             </li>
                             <li className="flex items-center gap-3 text-gray-400">
                                 <Phone size={18} className="text-primary" />
-                                <span>(45) 9911-6751</span>
+                                <span>{getVal('contato_whatsapp')}</span>
                             </li>
                             <li className="text-gray-400 italic mt-4">
-                                Rua Sete de Setembro, nº 945, Centro <br />
-                                Marechal Cândido Rondon - PR
+                                {getVal('contato_endereco')}
                             </li>
                         </ul>
                     </div>
                 </div>
+
 
                 <div className="border-t border-white/5 pt-10 flex flex-col md:row justify-between items-center gap-4 text-sm text-gray-500">
                     <p>© 2026 AcorreRondon. Todos os direitos reservados.</p>
