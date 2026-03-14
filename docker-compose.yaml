@@ -1,15 +1,14 @@
-version: '3.8'
-
 services:
   acorre:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "8080:8080"
     volumes:
-      - pb_data:/app/pb/pb_data
+      - pb_data:/app/pb_data
     restart: always
 
 volumes:
   pb_data:
+
