@@ -3,12 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
     volumes:
       - pb_data:/app/pb_data
     restart: always
 
 volumes:
   pb_data:
+
 
