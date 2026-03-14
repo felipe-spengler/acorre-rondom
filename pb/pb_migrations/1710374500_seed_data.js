@@ -12,8 +12,11 @@ migrate((db) => {
     { chave: 'social_instagram', valor: 'https://www.instagram.com/acorrerondon/', descricao: 'Link do Instagram' },
     { chave: 'social_facebook', valor: 'https://www.facebook.com/acorre.rondon.1/', descricao: 'Link do Facebook' },
     { chave: 'url_iframe_inscricoes', valor: 'https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida', descricao: 'Link do portal de inscrições' },
-    { chave: 'url_iframe_resultados', valor: 'https://esportivo.techinteligente.site/races/63/results', descricao: 'Link do portal de resultados' }
+    { chave: 'url_iframe_resultados', valor: 'https://esportivo.techinteligente.site/races/63/results', descricao: 'Link do portal de resultados' },
+    { chave: 'home_hero_image', valor: '', descricao: 'Imagem de fundo do topo (Hero)' },
+    { chave: 'home_about_image', valor: '', descricao: 'Imagem lateral da seção Quem Somos' }
   ];
+
 
   const configCol = dao.findCollectionByNameOrId("configuracoes");
   configs.forEach(c => {
@@ -36,6 +39,13 @@ migrate((db) => {
       data: "2025-10-10 10:00:00",
       autor: "Departamento Técnico",
       categoria: "Dicas"
+    },
+    {
+      titulo: "AcorreRondon conquista pódios em maratona regional",
+      resumo: "Nossos atletas deram um show de superação e trouxeram diversos troféus para casa.",
+      data: "2025-10-05 10:00:00",
+      autor: "Secretaria",
+      categoria: "Conquistas"
     }
   ];
 
@@ -51,9 +61,16 @@ migrate((db) => {
     { nome: "Alisson Henrique Ferreira", cargo: "Vice Presidente", ordem: 2, conselho: false },
     { nome: "Meridiana Vanessa Kempfer", cargo: "1ª Secretária", ordem: 3, conselho: false },
     { nome: "Raidiane Nolasco Fernandes", cargo: "2ª Secretária", ordem: 4, conselho: false },
+    { nome: "Veruska Roberta Marinho da Silva Lopes", cargo: "1ª Tesoureira", ordem: 5, conselho: false },
+    { nome: "Alexandre Venso", cargo: "2º Tesoureiro", ordem: 6, conselho: false },
+    { nome: "Vianei Ritter", cargo: "Diretor Técnico", ordem: 7, conselho: false },
+    { nome: "Alexandre Luiz Stein", cargo: "Diretor Técnico de Provas", ordem: 8, conselho: false },
+    { nome: "Priscila Josiane do Nascimento Ritter", cargo: "Diretora de Relações Públicas", ordem: 9, conselho: false },
     { nome: "Arlete Beatris Helfenstein Kempfer", cargo: "Conselho Fiscal", ordem: 10, conselho: true },
-    { nome: "Gilmar Correa da Cunha", cargo: "Conselho Fiscal", ordem: 11, conselho: true }
+    { nome: "Bruna Michele de Souza Dorneles", cargo: "Conselho Fiscal", ordem: 11, conselho: true },
+    { nome: "Gilmar Correa da Cunha", cargo: "Conselho Fiscal", ordem: 12, conselho: true }
   ];
+
 
   const dirCol = dao.findCollectionByNameOrId("diretoria");
   membros.forEach(m => {
