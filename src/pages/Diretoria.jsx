@@ -94,11 +94,12 @@ const Diretoria = () => {
                             >
                                 <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary/20 transition-colors overflow-hidden shrink-0">
                                     {membro.foto ? (
-                                        <img src={membro.foto} alt={membro.nome} className="w-full h-full object-cover" />
+                                        <img src={membro.id ? getFileUrl(membro, membro.foto) : membro.foto} alt={membro.nome} className="w-full h-full object-cover" />
                                     ) : (
                                         <User className="text-gray-500 group-hover:text-primary transition-colors" size={40} />
                                     )}
                                 </div>
+
                                 <div className="flex-1">
                                     <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{membro.nome}</h3>
                                     <p className="text-sm text-gray-400 font-medium uppercase tracking-wider">{membro.cargo}</p>
