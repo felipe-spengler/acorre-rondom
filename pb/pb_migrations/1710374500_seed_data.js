@@ -10,12 +10,17 @@ migrate((db) => {
     { chave: 'contato_whatsapp', valor: '(45) 9911-6751', descricao: 'WhatsApp de contato' },
     { chave: 'contato_email', valor: 'acorrerondon@outlook.com', descricao: 'E-mail oficial' },
     { chave: 'social_instagram', valor: 'https://www.instagram.com/acorrerondon/', descricao: 'Link do Instagram' },
+    { chave: 'social_instagram_handle', valor: '@acorrerondon', descricao: 'Nome de usuário do Instagram' },
     { chave: 'social_facebook', valor: 'https://www.facebook.com/acorre.rondon.1/', descricao: 'Link do Facebook' },
     { chave: 'url_iframe_inscricoes', valor: 'https://esportivo.techinteligente.site/club-home/acorre/explore?sport=Corrida', descricao: 'Link do portal de inscrições' },
     { chave: 'url_iframe_resultados', valor: 'https://esportivo.techinteligente.site/races/63/results', descricao: 'Link do portal de resultados' },
     { chave: 'home_hero_image', valor: '', descricao: 'Imagem de fundo do topo (Hero)' },
-    { chave: 'home_about_image', valor: '', descricao: 'Imagem lateral da seção Quem Somos' }
+    { chave: 'home_about_image', valor: '', descricao: 'Imagem lateral da seção Quem Somos' },
+    { chave: 'contato_subtitulo', valor: 'Estamos prontos para te ajudar com qualquer dúvida sobre nossas provas, treinos ou parcerias.', descricao: 'Subtítulo da página de contato' },
+    { chave: 'contato_endereco', valor: 'Marechal Cândido Rondon - PR', descricao: 'Endereço/Cidade de localização' },
+    { chave: 'contato_treinos_info', valor: 'Consulte horários no WhatsApp', descricao: 'Informação sobre treinos coletivos' }
   ];
+
 
 
   const configCol = dao.findCollectionByNameOrId("configuracoes");
