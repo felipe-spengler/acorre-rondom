@@ -115,7 +115,7 @@ const Home = () => {
                         <div className="lg:w-1/2">
                             <h2 className="text-5xl font-black italic tracking-tighter mb-8 leading-tight">
                                 VIVA A JORNADA DO <br />
-                                <span className="text-primary">CORREDOR</span>
+                                <span className="text-primary">ATLETA</span>
                             </h2>
                             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                                 Não é sobre o relógio, é sobre a sensação de cruzar a linha. Nossa estrutura é pensada para que você se preocupe apenas com seu próximo passo, cercado por uma comunidade que vibra na mesma frequência.
