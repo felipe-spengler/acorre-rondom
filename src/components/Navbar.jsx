@@ -23,7 +23,7 @@ const Navbar = () => {
         { name: 'Notícias', path: '/noticias' },
         { name: 'Diretoria', path: '/diretoria' },
         { name: 'Inscrições', path: '/inscricoes' },
-        { name: 'Projeto Saúde', path: '/projeto-saude' },
+        { name: 'Movimento&Saúde', path: '/projeto-saude' },
         { name: 'Resultados', path: '/resultados' },
         { name: 'Contato', path: '/contato' },
     ];
