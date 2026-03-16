@@ -5,7 +5,9 @@ import logoImg from '../assets/logo.jpg';
 import { useConfig } from '../lib/useConfig';
 
 const Footer = () => {
-    const { getVal } = useConfig();
+    const { getVal, loading: configLoading } = useConfig();
+
+    if (configLoading) return null;
 
     return (
         <footer className="bg-dark-lighter border-t border-white/5 pt-20 pb-10">

@@ -2,47 +2,42 @@ import { useState, useEffect } from 'react';
 import { pb, getFileUrl } from './pocketbase';
 
 // Cache global para evitar múltiplas requisições simultâneas
-let cachedConfig = null;
-let fetchPromise = null;
+let cachedConfigs = {}; // Objeto para armazenar diferentes coleções { 'configuracoes': {...}, 'projeto_saude_config': {...} }
+let fetchPromises = {};
 
 export const useConfig = (collection = 'configuracoes') => {
-    const [configRecords, setConfigRecords] = useState(cachedConfig || {});
-    const [loading, setLoading] = useState(!cachedConfig);
+    const [configRecords, setConfigRecords] = useState(cachedConfigs[collection] || {});
+    const [loading, setLoading] = useState(!cachedConfigs[collection]);
 
     useEffect(() => {
-        // Se já temos o cache, não precisamos buscar novamente
-        // (A menos que queiramos um sistema de revalidação, mas para config estática isso resolve o erro do console)
-        if (cachedConfig) {
+        // Se já temos o cache para esta coleção específica, não precisamos buscar novamente
+        if (cachedConfigs[collection]) {
+            setConfigRecords(cachedConfigs[collection]);
             setLoading(false);
             return;
         }
 
         const fetchConfigs = async () => {
             try {
-                // Se não há uma busca em andamento, criamos uma
-                if (!fetchPromise) {
-                    fetchPromise = (async () => {
+                // Se não há uma busca em andamento para ESTA coleção, criamos uma
+                if (!fetchPromises[collection]) {
+                    fetchPromises[collection] = (async () => {
                         const records = await pb.collection(collection).getFullList();
                         const recordMap = {};
                         records.forEach(r => {
                             recordMap[r.chave] = r;
                         });
-                        cachedConfig = recordMap;
+                        cachedConfigs[collection] = recordMap;
                         return recordMap;
                     })();
                 }
 
-                // Todos esperam pela mesma promessa que resolve o mapa pronto
-                const resultMap = await fetchPromise;
+                const resultMap = await fetchPromises[collection];
                 setConfigRecords(resultMap);
             } catch (err) {
-                // Silencia erros de cancelamento (comum no PocketBase quando há chamadas duplas)
-                if (err?.isAbort) {
-                    return;
-                }
+                if (err?.isAbort) return;
                 console.error(`Erro ao buscar configurações em ${collection}:`, err);
-                // Em caso de erro real, permite tentar novamente na próxima montagem
-                fetchPromise = null;
+                fetchPromises[collection] = null;
             } finally {
                 setLoading(false);
             }
@@ -64,5 +59,6 @@ export const useConfig = (collection = 'configuracoes') => {
 
     return { getVal, getFile, loading };
 };
+
 
 
