@@ -8,6 +8,7 @@ import Noticias from './pages/Noticias';
 import Diretoria from './pages/Diretoria';
 import ProjetoMovimentoSaude from './pages/ProjetoMovimentoSaude';
 import Resultados from './pages/Resultados';
+import NoticiaDetalhe from './pages/NoticiaDetalhe';
 
 import ScrollToTop from './components/ScrollToTop';
 import { pb } from './lib/pocketbase';
@@ -29,6 +30,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/inscricoes" element={<Inscricoes />} />
             <Route path="/noticias" element={<Noticias />} />
+            <Route path="/noticia/:id" element={<NoticiaDetalhe />} />
             <Route path="/diretoria" element={<Diretoria />} />
             <Route path="/projeto-saude" element={<ProjetoMovimentoSaude />} />
             <Route path="/resultados" element={<Resultados />} />

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { pb, getFileUrl } from '../lib/pocketbase';
 
 const Noticias = () => {
@@ -53,39 +54,43 @@ const Noticias = () => {
                     {news.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {news.map((item, index) => (
-                                <motion.article
+                                <Link 
+                                    to={`/noticia/${item.id}`}
                                     key={item.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="glass rounded-3xl overflow-hidden border border-white/10 flex flex-col group cursor-pointer"
                                 >
-                                    <div className="h-48 overflow-hidden relative">
-                                        <img
-                                            src={getFileUrl(item, item.imagem)}
-                                            alt={item.titulo}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        />
-                                        <div className="absolute top-4 left-4 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full">
-                                            {item.categoria}
+                                    <motion.article
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        className="glass rounded-3xl overflow-hidden border border-white/10 flex flex-col group cursor-pointer h-full"
+                                    >
+                                        <div className="h-48 overflow-hidden relative">
+                                            <img
+                                                src={getFileUrl(item, item.imagem)}
+                                                alt={item.titulo}
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                            />
+                                            <div className="absolute top-4 left-4 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full">
+                                                {item.categoria}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="p-6 flex flex-col flex-grow">
-                                        <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
-                                            <span className="flex items-center gap-1"><Calendar size={14} /> {item.data?.split(' ')[0] || item.data}</span>
-                                            <span className="flex items-center gap-1"><User size={14} /> {item.autor}</span>
+                                        <div className="p-6 flex flex-col flex-grow">
+                                            <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
+                                                <span className="flex items-center gap-1"><Calendar size={14} /> {item.data?.split(' ')[0] || item.data}</span>
+                                                <span className="flex items-center gap-1"><User size={14} /> {item.autor}</span>
+                                            </div>
+                                            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                                                {item.titulo}
+                                            </h3>
+                                            <p className="text-gray-400 text-sm mb-6 flex-grow">
+                                                {item.resumo}
+                                            </p>
+                                            <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase italic">
+                                                Ler mais <ArrowRight size={16} />
+                                            </div>
                                         </div>
-                                        <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                                            {item.titulo}
-                                        </h3>
-                                        <p className="text-gray-400 text-sm mb-6 flex-grow">
-                                            {item.resumo}
-                                        </p>
-                                        <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase italic">
-                                            Ler mais <ArrowRight size={16} />
-                                        </div>
-                                    </div>
-                                </motion.article>
+                                    </motion.article>
+                                </Link>
                             ))}
                         </div>
                     ) : (
