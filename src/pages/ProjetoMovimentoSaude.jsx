@@ -73,9 +73,7 @@ const ProjetoMovimentoSaude = () => {
                                 {getVal('hero_subtitulo')}
                             </p>
                             <motion.a
-                                href={`https://wa.me/55${getVal('coordenadora_whatsapp').replace(/\D/g, '')}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="#contato-projeto"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="inline-block bg-primary text-black px-10 py-4 rounded-2xl font-black italic tracking-wider hover:bg-primary-light transition-all"
@@ -149,20 +147,35 @@ const ProjetoMovimentoSaude = () => {
             </section>
 
             {/* Contact Section */}
-            <section className="py-16 px-4 mb-20">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-black italic mb-8 uppercase tracking-widest">DÚVIDAS SOBRE O PROJETO?</h2>
-                    <div className="glass p-10 rounded-[3rem] border border-white/10 inline-block">
-                        <p className="text-gray-400 mb-4 uppercase tracking-widest font-bold">Fale com a Coordenadora</p>
-                        <h3 className="text-2xl font-black mb-6">{getVal('coordenadora_nome')}</h3>
-                        <a 
-                            href={`https://wa.me/55${getVal('coordenadora_whatsapp').replace(/\D/g, '')}`} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-3 bg-primary text-black px-8 py-4 rounded-2xl font-black hover:bg-primary-light transition-all"
-                        >
-                            <Phone size={20} /> {getVal('coordenadora_whatsapp')}
-                        </a>
+            <section id="contato-projeto" className="py-16 px-4 mb-20">
+                <div className="max-w-6xl mx-auto text-center">
+                    <h2 className="text-3xl font-black italic mb-12 uppercase tracking-widest">DÚVIDAS SOBRE O PROJETO?</h2>
+                    <div className="flex flex-col md:flex-row justify-center gap-8">
+                        <div className="glass p-10 rounded-[3rem] border border-white/10 flex-1 max-w-md">
+                            <p className="text-gray-400 mb-4 uppercase tracking-widest font-bold">Coordenadora</p>
+                            <h3 className="text-2xl font-black mb-6">{getVal('coordenadora_nome')}</h3>
+                            <a 
+                                href={`https://wa.me/55${getVal('coordenadora_whatsapp').replace(/\D/g, '')}`} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 bg-primary text-black px-8 py-4 rounded-2xl font-black hover:bg-primary-light transition-all w-full justify-center"
+                            >
+                                <Phone size={20} /> {getVal('coordenadora_whatsapp')}
+                            </a>
+                        </div>
+                        
+                        <div className="glass p-10 rounded-[3rem] border border-white/10 flex-1 max-w-md">
+                            <p className="text-gray-400 mb-4 uppercase tracking-widest font-bold">Coordenador</p>
+                            <h3 className="text-2xl font-black mb-6">{getVal('coordenador2_nome')}</h3>
+                            <a 
+                                href={`https://wa.me/55${getVal('coordenador2_whatsapp').replace(/\D/g, '')}`} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 bg-primary text-black px-8 py-4 rounded-2xl font-black hover:bg-primary-light transition-all w-full justify-center"
+                            >
+                                <Phone size={20} /> {getVal('coordenador2_whatsapp')}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
