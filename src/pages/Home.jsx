@@ -25,16 +25,32 @@ const Home = () => {
 
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="max-w-3xl"
-                    >
-                        <span className="inline-block bg-primary px-3 py-1 text-xs font-black uppercase tracking-widest text-black mb-6">
+                    <div className="max-w-3xl">
+                        {/* Season Tag */}
+                        <motion.span
+                            initial={{ opacity: 0, x: -100 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                                duration: 2.5, 
+                                ease: [0.16, 1, 0.3, 1],
+                                delay: 0.1
+                            }}
+                            className="inline-block bg-primary px-3 py-1 text-xs font-black uppercase tracking-widest text-black mb-6"
+                        >
                             {getVal('home_season_tag')}
-                        </span>
-                        <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter leading-none mb-6">
+                        </motion.span>
+
+                        {/* Title */}
+                        <motion.h1 
+                            initial={{ opacity: 0, x: -100 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                                duration: 2.8, 
+                                ease: [0.16, 1, 0.3, 1],
+                                delay: 0.3
+                            }}
+                            className="text-6xl md:text-8xl font-black italic tracking-tighter leading-none mb-6"
+                        >
                             {getVal('home_hero_title').includes('\n') ? (
                                 <>
                                     {getVal('home_hero_title').split('\n').map((line, i) => (
@@ -46,19 +62,41 @@ const Home = () => {
                             ) : (
                                 <span>{getVal('home_hero_title', 'DESAFIE O SEU PRÓPRIO RITMO')}</span>
                             )}
-                        </h1>
-                        <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-xl">
+                        </motion.h1>
+
+                        {/* Subtitle */}
+                        <motion.p 
+                            initial={{ opacity: 0, x: -100 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                                duration: 3, 
+                                ease: [0.16, 1, 0.3, 1],
+                                delay: 0.5
+                            }}
+                            className="text-xl md:text-2xl text-gray-300 mb-10 max-w-xl"
+                        >
                             {getVal('home_hero_subtitle')}
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        </motion.p>
+
+                        {/* Buttons */}
+                        <motion.div 
+                            initial={{ opacity: 0, x: -100 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                                duration: 3.2, 
+                                ease: [0.16, 1, 0.3, 1],
+                                delay: 0.7
+                            }}
+                            className="flex flex-col sm:flex-row gap-4"
+                        >
                             <Link to="/inscricoes" className="flex items-center justify-center gap-2 bg-primary text-black px-10 py-5 rounded-full font-black text-lg hover:bg-primary-light transition-all transform hover:scale-105">
                                 INSCREVA-SE JÁ <ArrowRight size={20} />
                             </Link>
                             <button className="flex items-center justify-center gap-2 border-2 border-white/20 hover:border-white px-10 py-4 rounded-full font-bold text-lg transition-all">
                                 CONHEÇA AS PROVAS
                             </button>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
