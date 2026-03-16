@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Calendar, User, ArrowLeft, Tag } from 'lucide-react';
+import { Calendar, User, ArrowLeft, Tag, Facebook, Twitter, MessageCircle, Share2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { pb, getFileUrl } from '../lib/pocketbase';
@@ -9,6 +9,21 @@ const NoticiaDetalhe = () => {
     const navigate = useNavigate();
     const [noticia, setNoticia] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const shareUrl = window.location.href;
+    const shareTitle = noticia?.titulo || 'Confira esta notícia na AcorreRondon';
+
+    const shareOnFacebook = () => {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank', 'width=600,height=400');
+    };
+
+    const shareOnTwitter = () => {
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`, '_blank', 'width=600,height=400');
+    };
+
+    const shareOnWhatsApp = () => {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareTitle + ' ' + shareUrl)}`, '_blank');
+    };
 
     useEffect(() => {
         const fetchNoticia = async () => {
@@ -114,17 +129,31 @@ const NoticiaDetalhe = () => {
                         {/* Social Share / Footer of Article */}
                         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                             <div className="flex items-center gap-4">
-                                <span className="text-sm text-gray-500 uppercase font-bold tracking-widest">Compartilhar</span>
-                                <div className="flex gap-2">
-                                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors cursor-pointer">
-                                        FB
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors cursor-pointer">
-                                        TW
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors cursor-pointer">
-                                        WA
-                                    </div>
+                                <span className="text-sm text-gray-500 uppercase font-bold tracking-widest flex items-center gap-2">
+                                    <Share2 size={16} className="text-primary" /> Compartilhar
+                                </span>
+                                <div className="flex gap-3">
+                                    <button 
+                                        onClick={shareOnFacebook}
+                                        title="Compartilhar no Facebook"
+                                        className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all hover:scale-110 active:scale-95"
+                                    >
+                                        <Facebook size={20} />
+                                    </button>
+                                    <button 
+                                        onClick={shareOnTwitter}
+                                        title="Compartilhar no Twitter"
+                                        className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#1DA1F2] hover:text-white transition-all hover:scale-110 active:scale-95"
+                                    >
+                                        <Twitter size={20} />
+                                    </button>
+                                    <button 
+                                        onClick={shareOnWhatsApp}
+                                        title="Compartilhar no WhatsApp"
+                                        className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all hover:scale-110 active:scale-95"
+                                    >
+                                        <MessageCircle size={20} />
+                                    </button>
                                 </div>
                             </div>
                             
