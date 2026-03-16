@@ -18,6 +18,17 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
+
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Notícias', path: '/noticias' },
@@ -93,7 +104,7 @@ const Navbar = () => {
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="md:hidden glass border-b border-white/10 h-screen absolute top-full left-0 w-full"
+                    className="md:hidden bg-dark/98 backdrop-blur-3xl border-b border-white/10 h-screen absolute top-full left-0 w-full"
                 >
                     <div className="px-4 pt-8 pb-3 space-y-4">
                         {navLinks.map((link) => (
