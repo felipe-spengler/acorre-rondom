@@ -30,8 +30,8 @@ const Home = () => {
                         <motion.span
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ 
-                                duration: 2.5, 
+                            transition={{
+                                duration: 3.5,
                                 ease: [0.16, 1, 0.3, 1],
                                 delay: 0.1
                             }}
@@ -41,11 +41,11 @@ const Home = () => {
                         </motion.span>
 
                         {/* Title */}
-                        <motion.h1 
+                        <motion.h1
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ 
-                                duration: 2.8, 
+                            transition={{
+                                duration: 4.5,
                                 ease: [0.16, 1, 0.3, 1],
                                 delay: 0.3
                             }}
@@ -65,11 +65,11 @@ const Home = () => {
                         </motion.h1>
 
                         {/* Subtitle */}
-                        <motion.p 
+                        <motion.p
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ 
-                                duration: 3, 
+                            transition={{
+                                duration: 5,
                                 ease: [0.16, 1, 0.3, 1],
                                 delay: 0.5
                             }}
@@ -79,11 +79,11 @@ const Home = () => {
                         </motion.p>
 
                         {/* Buttons */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ 
-                                duration: 3.2, 
+                            transition={{
+                                duration: 5.4,
                                 ease: [0.16, 1, 0.3, 1],
                                 delay: 0.7
                             }}
