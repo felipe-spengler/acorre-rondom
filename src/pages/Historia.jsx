@@ -3,15 +3,17 @@ import { useState, useEffect } from 'react';
 import { pb, getFileUrl } from '../lib/pocketbase';
 
 const Historia = () => {
-    const [historia, setHistoria] = useState(null);
+    const [historias, setHistorias] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchHistoria = async () => {
             try {
-                // Tenta buscar o primeiro registro de história cadastrado
-                const record = await pb.collection('historia').getFirstListItem('');
-                setHistoria(record);
+                // Busca todos os blocos de história cadastrados em ordem de criação
+                const records = await pb.collection('historia').getFullList({
+                    sort: 'created',
+                });
+                setHistorias(records);
             } catch (err) {
                 console.error("Erro ao buscar história:", err);
             } finally {
@@ -30,7 +32,7 @@ const Historia = () => {
         );
     }
 
-    if (!historia) {
+    if (historias.length === 0) {
         return (
             <div className="pt-24 min-h-screen bg-dark flex flex-col items-center justify-center px-4">
                 <h2 className="text-3xl font-bold mb-6 text-white text-center">Nossa história ainda não foi contada.</h2>
@@ -49,58 +51,65 @@ const Historia = () => {
                             animate={{ opacity: 1, y: 0 }}
                             className="text-5xl md:text-7xl font-black italic tracking-tighter mb-6 uppercase"
                         >
-                            {historia.titulo || "NOSSA HISTÓRIA"}
+                            NOSSA HISTÓRIA
                         </motion.h1>
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
                     </div>
 
-                    <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="glass p-8 md:p-12 rounded-[2rem] border border-white/10"
-                    >
-                        {/* Texto Completo */}
-                        <div className="prose prose-invert prose-primary max-w-none text-gray-300 text-lg leading-relaxed mb-12">
-                            {historia.texto ? (
-                                <div dangerouslySetInnerHTML={{ __html: historia.texto }} />
-                            ) : (
-                                <p>O texto da história será exibido aqui.</p>
-                            )}
-                        </div>
+                    <div className="space-y-12">
+                        {historias.map((bloco, index) => (
+                            <motion.div 
+                                key={bloco.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                className="glass p-8 md:p-12 rounded-[2rem] border border-white/10"
+                            >
+                                {/* Título do Bloco */}
+                                {bloco.titulo && (
+                                    <h2 className="text-3xl font-bold italic text-white mb-6 border-l-4 border-primary pl-4">{bloco.titulo}</h2>
+                                )}
 
-                        {/* Galeria de Imagens da História */}
-                        {historia.imagens && Array.isArray(historia.imagens) && historia.imagens.length > 0 && (
-                            <div className="mt-12">
-                                <h3 className="text-2xl font-bold mb-6 italic text-white flex items-center gap-2">GALERIA HISTÓRICA</h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                                    {historia.imagens.map((img, idx) => (
-                                        <div key={idx} className="relative aspect-video sm:aspect-square overflow-hidden rounded-xl border border-white/10 group">
-                                            <img 
-                                                src={getFileUrl(historia, img)} 
-                                                alt={`Galeria Histórica ${idx + 1}`} 
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                            />
-                                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                {/* Texto Completo */}
+                                <div className="prose prose-invert prose-primary max-w-none text-gray-300 text-lg leading-relaxed mb-8">
+                                    {bloco.texto ? (
+                                        <div dangerouslySetInnerHTML={{ __html: bloco.texto }} />
+                                    ) : (
+                                        <p>Nenhum texto informado.</p>
+                                    )}
+                                </div>
+
+                                {/* Galeria de Imagens da História */}
+                                {(bloco.imagens && Array.isArray(bloco.imagens) && bloco.imagens.length > 0) ? (
+                                    <div className="mt-8">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                            {bloco.imagens.map((img, idx) => (
+                                                <div key={idx} className="relative aspect-video sm:aspect-square overflow-hidden rounded-xl border border-white/10 group">
+                                                    <img 
+                                                        src={getFileUrl(bloco, img)} 
+                                                        alt={`${bloco.titulo || 'História'} - anexo ${idx + 1}`} 
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    bloco.imagens && !Array.isArray(bloco.imagens) && (
+                                        <div className="mt-8">
+                                            <div className="relative aspect-video sm:aspect-square overflow-hidden rounded-xl border border-white/10 group">
+                                                <img 
+                                                    src={getFileUrl(bloco, bloco.imagens)} 
+                                                    alt={bloco.titulo || 'História'} 
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                />
                                             </div>
                                         </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                        
-                        {/* Se por acaso for um arquivo só em vez de array (caso de mudança no maxSelect) */}
-                        {historia.imagens && !Array.isArray(historia.imagens) && (
-                            <div className="mt-12">
-                                <h3 className="text-2xl font-bold mb-6 italic text-white flex items-center gap-2">GALERIA HISTÓRICA</h3>
-                                <img 
-                                    src={getFileUrl(historia, historia.imagens)} 
-                                    alt="História" 
-                                    className="w-full object-cover rounded-xl border border-white/10"
-                                />
-                            </div>
-                        )}
-                    </motion.div>
+                                    )
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
         </div>
