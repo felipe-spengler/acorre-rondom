@@ -70,9 +70,6 @@ const Noticias = () => {
                                                 alt={item.titulo}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
-                                            <div className="absolute top-4 left-4 bg-primary text-black text-xs font-bold px-3 py-1 rounded-full">
-                                                {item.categoria}
-                                            </div>
                                         </div>
                                         <div className="p-6 flex flex-col flex-grow">
                                             <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">

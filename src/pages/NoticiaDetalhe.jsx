@@ -83,7 +83,6 @@ const NoticiaDetalhe = () => {
                             </Link>
                             
                             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-300 mb-4">
-                                <span className="flex items-center gap-1 bg-white/10 px-3 py-1 rounded-full"><Tag size={14} className="text-primary" /> {noticia.categoria}</span>
                                 <span className="flex items-center gap-1"><Calendar size={14} className="text-primary" /> {noticia.data?.split(' ')[0] || noticia.data}</span>
                                 <span className="flex items-center gap-1"><User size={14} className="text-primary" /> {noticia.autor}</span>
                             </div>
@@ -120,11 +119,24 @@ const NoticiaDetalhe = () => {
                                         [O conteúdo completo desta notícia ainda não foi cadastrado no sistema.]
                                     </p>
                                     <p className="text-sm italic text-gray-500">
-                                        Dica: Adicione um campo chamado "conteudo" na coleção "noticias" do PocketBase para exibir o texto completo aqui.
+                                        Dica: O campo "conteudo" na coleção "noticias" foi adicionado para exibir o texto completo aqui.
                                     </p>
                                 </div>
                             )}
                         </div>
+
+                        {/* Imagens adicionais - COMENTADO A PEDIDO DO USUÁRIO
+                        {noticia.imagem && Array.isArray(noticia.imagem) && noticia.imagem.length > 1 && (
+                            <div className="mt-12">
+                                <h3 className="text-2xl font-bold mb-6 italic text-white flex items-center gap-2">GALERIA DE FOTOS</h3>
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    {noticia.imagem.slice(1).map((img, idx) => (
+                                        <img key={idx} src={getFileUrl(noticia, img)} alt={`${noticia.titulo} - anexo ${idx + 2}`} className="w-full h-48 object-cover rounded-xl border border-white/10 hover:scale-[1.02] transition-transform" />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                        */}
 
                         {/* Social Share / Footer of Article */}
                         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">

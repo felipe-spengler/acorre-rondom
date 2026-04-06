@@ -10,7 +10,13 @@ export const pb = new PocketBase(url);
 
 // Helper para pegar URL de arquivos
 export const getFileUrl = (record, filename) => {
-    if (!filename) return null;
-    return `${url}/api/files/${record.collectionId}/${record.id}/${filename}`;
+    if (!filename || filename.length === 0) return null;
+    const f = Array.isArray(filename) ? filename[0] : filename;
+    return `${url}/api/files/${record.collectionId}/${record.id}/${f}`;
 };
 
+export const getFileUrls = (record, filenames) => {
+    if (!filenames || filenames.length === 0) return [];
+    const files = Array.isArray(filenames) ? filenames : [filenames];
+    return files.map(f => `${url}/api/files/${record.collectionId}/${record.id}/${f}`);
+};
