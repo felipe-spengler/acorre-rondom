@@ -5,7 +5,7 @@ import { useConfig } from '../lib/useConfig';
 
 const Resultados = () => {
     const { getVal } = useConfig();
-    const iframeUrl = getVal('url_iframe_resultados');
+    const iframeUrl = getVal('url_iframe_resultados', 'https://esportes7.com.br/races/63/results');
 
     return (
         <div className="pt-24 min-h-screen bg-dark">

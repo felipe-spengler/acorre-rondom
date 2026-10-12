@@ -5,7 +5,7 @@ import { useConfig } from '../lib/useConfig';
 
 const Inscricoes = () => {
     const { getVal } = useConfig();
-    const iframeUrl = getVal('url_iframe_inscricoes');
+    const iframeUrl = getVal('url_iframe_inscricoes', 'https://esportes7.com.br/club-home/acorre/explore?sport=Corrida');
 
     return (
         <div className="pt-24 min-h-screen bg-dark">
